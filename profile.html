@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volvo - My Account</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html"><img src="logo-image/white-volvo-logo-1.png" alt="Volvo" class="volvo-logo"></a>
+            <ul class="nav-list">
+                <a href="cars.html"><li><p>CARS</p></li></a>
+                <a href="trucks.html"><li><p>TRUCKS</p></li></a>
+                <button id="logoutBtn" class="logout-btn">Log Out</button>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="profile-container">
+        <aside class="profile-sidebar">
+            <div class="user-brief">
+                <img src="uploads/avatars/default-avatar.png" id="sidebarAvatar" alt="User Avatar">
+                <h3 id="sidebarUsername">Username</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active">Profile Info</li>
+                <li>Saved Vehicles</li>
+                <li>Test Drives</li>
+            </ul>
+        </aside>
+
+        <main class="profile-content">
+            <h2>Personal Information</h2>
+            <p class="subtitle">Update your personal details and profile picture here.</p>
+            
+            <form id="profileForm" enctype="multipart/form-data">
+                <div class="avatar-upload">
+                    <img src="uploads/avatars/default-avatar.png" id="mainAvatar" alt="Profile Picture">
+                    <div class="upload-btn-wrapper">
+                        <button class="btn">Change Photo</button>
+                        <input type="file" name="avatar" id="avatarInput" accept="image/*" />
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label>Username</label>
+                        <input type="text" id="profUsername" name="username" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" id="profEmail" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" id="profFullName" name="full_name" placeholder="Enter your full name">
+                    </div>
+                </div>
+
+                <p id="profile-message" style="display: none;"></p>
+                <button type="submit" class="save-btn">Save Changes</button>
+            </form>
+            <div id="savedCarsSection" style="display: none;">
+                <h2>Saved Vehicles</h2>
+                <p class="subtitle">Cars you have added to your favorites.</p>
+                <div class="car-list" id="savedCarsContainer">
+                    </div>
+            </div>
+            <div id="testDrivesSection" style="display: none;">
+                <h2>Test Drives</h2>
+                <p class="subtitle">Your scheduled test drives.</p>
+                <div id="testDrivesContainer">
+                    </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+</html>

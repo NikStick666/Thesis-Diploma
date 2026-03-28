@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volvo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+</head>
+<header class="header">
+    <nav class="nav">
+        <a href="index.html"><img src="logo-image/white-volvo-logo-1.png" alt="" class="volvo-logo"></a>
+        <ul class="nav-list">
+            <a href="cars.html"><li><p>CARS</p></li></a>
+            <a href="trucks.html"><li><p>TRUCKS</p></li></a>
+            <li><p>BUSES</p></li>
+            <li><p>HISTORY</p></li>
+            <a href="login/register.html" id="accountLink"><li><p>ACCOUNT</p></li></a>
+        </ul>
+    </nav>
+</header>
+<body>
+     <video autoplay muted loop playsinline src="main-bg/main-page-video.mp4" frameborder="0" class="main-bg-1"></video>
+    <div class="main-page">
+        <p class="main-text">FOR OUR CUSTOMERS</p>
+        <div class="cards">
+            <a href="cars.html"><div class="cars-card">
+                <img src="volvo-cards/cars-card.png" alt=""
+                    onmouseover="this.src='volvo-cards/cars-card-light.png'"
+                    onmouseout="this.src='volvo-cards/cars-card.png'">
+                <p>CARS</p>
+                <h4>pleasure of driving</h4>
+            </div> </a>
+            <a href="trucks.html">
+                <div class="trucks-card">
+                    <img src="volvo-cards/trucks-card.png" alt=""
+                    onmouseover="this.src='volvo-cards/trucks-card-light.png'"
+                    onmouseout="this.src='volvo-cards/trucks-card.png'">
+                    <p>TRUCKS</p>
+                    <h4>moving the world</h4>
+                </div>
+            </a>
+            <div class="buses-card">
+                <img src="volvo-cards/buses-card.png" alt=""
+                onmouseover="this.src='volvo-cards/buses-card-light.png'"
+                onmouseout="this.src='volvo-cards/buses-card.png'">
+                <p>BUSES</p>
+                <h4>affordable comfort for everyone</h4>
+            </div>
+        </div>
+        <div class="bottom-image">
+            <img src="bottom-image/bottom-image1.png" alt="">
+        </div>
+    </div>
+    <footer>
+        <div class="headquarters">
+            <p>Volvo Headquarters</p>
+            <a href="contacts.html"><h1>Contact Us</h1></a>
+        </div>
+        <div class="footer-cars">
+            <p>Volvo Cars</p>
+            <a href="cars.html"><h1>Our Cars</h1></a>
+            <h1>Our Trucks</h1>
+            <h1>Our Buses</h1>
+        </div>
+        <div class="volvo-world">
+            <p>Volvo World</p>
+            <h1>Our History</h1>
+            <h1>Visit Us</h1>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const accountLink = document.getElementById('accountLink');
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const username = localStorage.getItem('username');
+
+            if (isLoggedIn === 'true') {
+                accountLink.href = 'profile.html'; 
+                
+                if (username) {
+                    accountLink.querySelector('p').textContent = username.toUpperCase();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

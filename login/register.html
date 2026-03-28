@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Account</title>
+    <link rel="stylesheet" href="register.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="register-container">
+        <h2>Welcome to Volvo!</h2>
+        <form class="register-form" id="registerForm">
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+    
+            <div class="input-group">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+    
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Password" required 
+                    pattern="(?=.*\d)(?=.*[A-Z]).{8,}"
+                    title="Пароль повинен містити мінімум 8 символів, 1 велику літеру та 1 цифру">
+            </div>
+
+            <p id="response-message" style="display: none; margin-top: 15px; font-weight: bold;"></p>
+
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account?</p>
+        <a href="login.html"><p>Log In!</p></a>
+    </div>
+    <script src="register.js"></script>
+</body>
+</html>

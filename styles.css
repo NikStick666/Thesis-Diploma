@@ -1,0 +1,230 @@
+body {
+    font-family: 'Oswald', sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh;   
+    overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+
+}
+
+a :hover {
+    text-decoration: underline;
+}
+
+.nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(87, 87, 87, 0);
+    /*padding: 1rem;*/
+    height: 4rem;
+}
+
+.nav-list {
+    color: #FEFEFE;
+    font-family: "Vend Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 30px;
+    font-weight: 400;
+    font-style: normal;
+    font-weight: 600;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex-grow: 1;
+    
+}
+
+.volvo-logo {
+    width: 10rem;
+    height: 2rem;
+    padding-left: 2rem;
+}
+
+.main-bg-1 {
+    width: 1920px;
+    height: 1080px;
+}
+
+.main-page p {
+    font-family: "Vend Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 50px;
+    font-weight: 400;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.main-page {
+    margin-left: 335px;
+    margin-right: 335px;
+}
+
+.cards {
+    background-color: #FFFFFF;
+    width: 100%;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.cards h4 {
+    font-weight: 600;
+}
+
+.cards img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.cars-card {
+    background-color: #FFFFFF;
+    width: 355px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cars-card p {
+    font-family: "Vend Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 30px;
+    font-weight: 500;
+    font-style: normal;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0.2rem 0 0 0;
+}
+
+.trucks-card {
+    background-color: #FFFFFF;
+    width: 355px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.trucks-card img {
+    height: 380px;
+}
+
+.trucks-card p {
+    font-family: "Vend Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 30px;
+    font-weight: 500;
+    font-style: normal;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0.2rem 0 0 0;
+}
+
+.buses-card {
+    background-color: #FFFFFF;
+    width: 355px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.buses-card img {
+    height: 315px;
+    padding-top: 66px;
+}
+
+.buses-card p {
+    font-family: "Vend Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 30px;
+    font-weight: 500;
+    font-style: normal;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0.2rem 0 0 0; 
+}
+
+.bottom-image {
+    display: flex;
+    justify-content: center;
+}
+
+.bottom-image img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+footer {
+    background-color: #131313;
+    width: 97%;
+    height: 30vh;
+    margin-top: 5vh;
+    color: #FEFEFE;
+    padding: 5vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer p {
+    font-family: "Vend Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 15px;
+    font-weight: 300;
+    font-style: normal;
+    padding-left: 5vh;
+    padding-right: 5vh;
+}
+
+footer h1 {
+    font-family: "Vend Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 30px;
+    font-weight: 500;
+    font-style: normal;
+    padding-left: 5vh;
+    padding-right: 5vh;
+}

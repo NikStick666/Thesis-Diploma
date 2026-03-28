@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volvo Plug-In Hybrids</title>
+    <link rel="stylesheet" href="electric.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+</head>
+<header class="header">
+    <nav class="nav">
+        <a href="index.html"><img src="logo-image/white-volvo-logo-1.png" alt="" class="volvo-logo"></a>
+        <ul class="nav-list">
+            <a href="cars.html"><li><p>CARS</p></li></a>
+            <a href="trucks.html"><li><p>TRUCKS</p></li></a>
+            <li><p>BUSES</p></li>
+            <li><p>HISTORY</p></li>
+        </ul>
+    </nav>
+</header>
+<body>
+    <div class="admin-panel hidden" id="adminPanel">
+    <h3>Admin: Add New Car</h3>
+    <form id="carForm">
+        <input type="text" id="titleInput" placeholder="Model Name" required>
+        <input type="hidden" id="carCategory" value="plugin_hybrid">
+        <div id="drop-area">
+            <p>Drag & Drop image here or click to upload</p>
+            <input type="file" id="fileElem" accept="image/*" style="display:none"> 
+            <img id="previewImg" style="display:none;"> 
+        </div>
+        <button type="submit">Add Car</button>
+    </form>
+</div>
+    <span><h1>Discover our plug-in hybrid vehicles</h1></span>
+    <div class="car-list" id="carContainer">
+            
+    </div>
+    <template id="carTemplate">
+        <div>
+            <p class="car-title"></p>
+            <img src="" alt="" class="car-img">
+        </div>
+    </template>
+    <script src="cars_admin.js"></script>
+</body>
+</html>
