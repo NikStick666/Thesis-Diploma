@@ -161,6 +161,12 @@ a:hover {
     border-radius: 10px;
 }
 
+.specs-banner p, .interior-info p {
+    font-size: 18px; 
+    line-height: 1.6; 
+    color: #333; 
+}
+
 .gallery {
     margin-top: 10vh;
     display: grid;

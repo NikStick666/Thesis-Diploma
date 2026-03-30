@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <ul class="nav-list">
                             <a href="../cars.html"><li><p>CARS</p></li></a>
                             <a href="../trucks.html"><li><p>TRUCKS</p></li></a>
-                            <li><p>BUSES</p></li>
+                            <a href="buses.html"><li><p>BUSES</p></li></a>
                             <li><p>HISTORY</p></li>
                         </ul>
                     </nav>
@@ -365,8 +365,321 @@ a:hover {
 
 }
 CSS;
+            //ГЕНЕРАЦІЯ ШАБЛОНУ HTML ДЛЯ АВТОБУСІВ
+            } elseif($category === 'bus' || $category === 'bus') {
+                $htmlContent = <<<HTML
+                <!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>9700</title>
+    <link rel='stylesheet' href='9700.css'>
+</head>
+<header class="header">
+    <nav class="nav" id="nav">
+        <a href="../index.html"><img src="../logo-image/white-volvo-logo-1.png" alt="" class="volvo-logo"></a>
+        <ul class="nav-list">
+            <a href="../cars.html"><li><p>CARS</p></li></a>
+            <a href="trucks.html"><li><p>TRUCKS</p></li></a>
+            <a href="buses.html"><li><p>BUSES</p></li></a>
+            <li><p>HISTORY</p></li>
+        </ul>
+    </nav>
+</header>
+<body>
+    <img src="../images-for-car-page/" alt="" 
+    style="width: 100%; height: 60vh; object-fit: cover; object-position: 50% 70%; margin-top: 5vh;">
+    <h1 style="display: flex; align-items: center; justify-content: center; letter-spacing: 5px;">
+    </h1>
+    <div class="intro-text">
+        <p>
+            
+        </p>
+    </div>
+    <div class="photo1">
+        <img src="../images-for-car-page/" alt="">
+    </div>
+    <div class="specs-banner">
+        <div class="specs-banner-photo">
+            <img src="../images-for-car-page/" alt="">
+        </div>
+        <div class="specs-banner-info">
+            
+            <h2></h2>
+            <p>
+                
+            </p>
+        </div>
+    </div>
+    <div class="specs-banner">
+        
+        <div class="specs-banner-info">
+            <h2></h2>
+            <p>
+                
+            </p>
+        </div>
+        <div class="specs-banner-photo">
+            <img src="../images-for-car-page/" alt="">
+        </div>
+    </div>
+    <img src="../images-for-car-page/" alt="" 
+    style="width: 100%; height: 60vh; object-fit: cover; object-position: 50% 70%; margin-top: 5vh;">
+    <h1 style="display: flex; align-items: center; justify-content: center; letter-spacing: 3px;">
+    </h1>
+    <div class="intro-text">
+        <p>
+           
+        </p>
+    </div>
+    <div class="specs-banner">
+        
+        <div class="specs-banner-info">
+            <h2></h2>
+            <p>
+                
+            </p>
+        </div>
+        <div class="specs-banner-photo">
+            <img src="../images-for-car-page/" alt="">
+        </div>
+    </div>
+    <div class="specs-banner">
+        <div class="specs-banner-photo">
+            <img src="../images-for-car-page/" alt="">
+        </div>
+        <div class="specs-banner-info">
+            <h2></h2>
+            <p>
+                
+            </p>
+        </div>
+    </div>
+    <img src="../images-for-car-page/" alt="" 
+    style="width: 100%; height: 60vh; object-fit: cover; object-position: 50% 70%; margin-top: 5vh;">
+    <h1 style="display: flex; align-items: center; justify-content: center; letter-spacing: 3px;">
+        
+    </h1>
+    <div class="intro-text">
+        <p>
+           
+        </p>
+    </div>
+    <div class="interior-info">
+            <div>
+                <h3></h3>
+                <p>
+                    
+                </p>
+            </div>
+            <div>
+                <h3></h3>
+                <p> 
+                    
+                </p>
+            </div>
+            <div>
+                <h3></h3>
+                <p>
+                    
+                </p>
+            </div>
+        </div>
+        <img src="../images-for-car-page/" alt="" 
+    style="width: 100%; height: 60vh; object-fit: cover; object-position: 50% 70%; margin-top: 5vh;">
+    <h1 style="display: flex; align-items: center; justify-content: center; letter-spacing: 3px;">
+        
+    </h1>
+    <div class="intro-text">
+        <p>
+           
+        </p>
+    </div>
+    <div class="interior-info">
+            <div>
+                <h3></h3>
+                <p>
+                    
+                </p>
+            </div>
+            <div>
+                <h3></h3>
+                <p> 
+                    
+                </p>
+            </div>
+            <div>
+                <h3></h3>
+                <p>
+                    
+                </p>
+            </div>
+    </div>
+    <img src="../images-for-car-page/" alt="" 
+    style="width: 100%; height: 60vh; object-fit: cover; object-position: 50% 70%; margin-top: 5vh;">
+    <div class="specs-banner">
+        <div class="specs-banner-photo">
+            <img src="../images-for-car-page/" alt="">
+        </div>
+        <div class="specs-banner-info">
+            <h2></h2>
+            <p>
+               
+            </p>
+        </div>
+    </div>
+    <div class="specs-banner">
+        
+        <div class="specs-banner-info">
+            <h2></h2>
+            <p>
+                
+            </p>
+        </div>
+        <div class="specs-banner-photo">
+            <img src="../images-for-car-page/" alt="">
+        </div>
+    </div>
+</body>
+</html>
+HTML;
+// ГЕНЕРАЦІЯ ШАБЛОНУ CSS ДЛЯ АВТОБУСІВ 
+$cssContent = <<<'CSS'
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh;   
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 60px;
+    font-weight: bold;
+    font-family: "Vend Sans", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.nav {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #131313;
+    height: 6rem;
+}
+
+.nav-list {
+    color: #FEFEFE;
+    font-family: "Vend Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 30px;
+    font-weight: 400;
+    font-style: normal;
+    font-weight: 600;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex-grow: 1;
+    
+}
+
+.volvo-logo {
+    width: 10rem;
+    height: 2rem;
+    padding-left: 2rem;
+}
+
+.intro-text {
+    max-width: 800px; 
+    margin: 50px auto; 
+    text-align: center;
+    font-family: "Vend Sans", sans-serif;
+}
+
+.intro-text p {
+    font-size: 18px; 
+    line-height: 1.6; 
+    color: #333; 
+}
+
+.photo1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo1 img {
+    width: 1200px; 
+    height: 413px;
+}
+
+.specs-banner {
+    margin-top: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5vh;
+    padding-right: 5vh;
+    gap: 5vw;
+}
+
+.specs-banner img {
+    border-radius: 10px;
+}
+
+.specs-banner p, .interior-info p {
+    font-size: 18px; 
+    line-height: 1.6; 
+    color: #333; 
+}
+
+.interior-info {
+    margin-top: 15vh;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-left: 15vh;
+    margin-right: 15vh;
+}
+
+.interior-info div {
+    width: 20%;
+    background-color: #dfdede;
+    padding: 3vh;
+    border-radius: 10px;
+}
+CSS;
+
 
             } else {
+
 
 
 // ГЕНЕРАЦІЯ HTML ШАБЛОНУ ЛЕГКОВИХ АВТО
@@ -385,7 +698,7 @@ $htmlContent = <<<HTML
         <ul class="nav-list">
             <a href="../cars.html"><li><p>CARS</p></li></a>
             <a href="trucks.html"><li><p>TRUCKS</p></li></a>
-            <li><p>BUSES</p></li>
+            <a href="buses.html"><li><p>BUSES</p></li></a>
             <li><p>HISTORY</p></li>
         </ul>
     </nav>
