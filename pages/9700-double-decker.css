@@ -87,9 +87,9 @@ a:hover {
     justify-content: center;
 }
 
-.photo1 img {
-    width: 1200px; 
-    height: 413px;
+.photo1 img { 
+    height: 519px;
+    border-radius: 10px;
 }
 
 .specs-banner {
