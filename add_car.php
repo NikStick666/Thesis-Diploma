@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <a href="../cars.html"><li><p>CARS</p></li></a>
                             <a href="../trucks.html"><li><p>TRUCKS</p></li></a>
                             <a href="buses.html"><li><p>BUSES</p></li></a>
-                            <li><p>HISTORY</p></li>
+                            <a href="history.html"><li><p>HISTORY</p></li></a>
                         </ul>
                     </nav>
                 </header>
@@ -383,7 +383,7 @@ CSS;
             <a href="../cars.html"><li><p>CARS</p></li></a>
             <a href="../trucks.html"><li><p>TRUCKS</p></li></a>
             <a href="../buses.html"><li><p>BUSES</p></li></a>
-            <li><p>HISTORY</p></li>
+            <a href="history.html"><li><p>HISTORY</p></li></a>
         </ul>
     </nav>
 </header>
@@ -699,7 +699,7 @@ $htmlContent = <<<HTML
             <a href="../cars.html"><li><p>CARS</p></li></a>
             <a href="trucks.html"><li><p>TRUCKS</p></li></a>
             <a href="buses.html"><li><p>BUSES</p></li></a>
-            <li><p>HISTORY</p></li>
+            <a href="history.html"><li><p>HISTORY</p></li></a>
         </ul>
     </nav>
 </header>

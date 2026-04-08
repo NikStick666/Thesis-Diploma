@@ -1,0 +1,150 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Vend Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.nav {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #131313;
+    height: 6rem;
+}
+
+.nav-list {
+    color: #FEFEFE;
+    font-family: "Vend Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 30px;
+    font-weight: 400;
+    font-style: normal;
+    font-weight: 600;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex-grow: 1;
+    
+}
+
+.volvo-logo {
+    width: 10rem;
+    height: 2rem;
+    padding-left: 2rem;
+}
+
+.content {
+    margin-left: 25vh;
+    margin-right: 25vh;
+}
+
+.main-title {
+    display: flex;
+    margin-top: 5vh;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    color: aliceblue;
+    border-radius: 10px;
+}
+
+.passage-title {
+    color: #333;
+    display: flex;
+    margin-top: 5vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-part {
+    color: #333;
+    letter-spacing: 2px;
+}
+
+.text-part p {
+    margin-bottom: 3vh;
+}
+
+.text-part img {
+    width: 700px;
+    height: auto;
+    display: block;
+    margin: 40px auto 0 auto;
+    border-radius: 10px;
+}
+
+.text-part-2photos {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3vh;
+}
+
+.text-part-2photos img {
+    width: 500px;
+    height: auto;
+}
+
+.specs-banner {
+    margin-top: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5vh;
+    padding-right: 5vh;
+    gap: 5vw;
+}
+
+.specs-banner img {
+    border-radius: 10px;
+}
+
+.diagram {
+    margin-top: 3vh;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-left: 15vh;
+    margin-right: 15vh;
+}
+
+.diagram p {
+    width: 20%;
+    background-color: #dfdede;
+    padding: 3vh;
+    border-radius: 10px;
+}
+
+span {
+    font-weight: 600;
+}
