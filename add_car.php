@@ -636,8 +636,11 @@ a:hover {
 }
 
 .photo1 img {
-    width: 1200px; 
-    height: 413px;
+    max-width: 1200px; 
+    width: 100%; 
+    height: auto; 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+    border-radius: 10px;
 }
 
 .specs-banner {
@@ -661,19 +664,27 @@ a:hover {
 }
 
 .interior-info {
-    margin-top: 15vh;
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    margin-left: 15vh;
-    margin-right: 15vh;
+    max-width: 1400px;
+    width: 90%;
+    margin: 10vh auto; 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px; 
+    align-items: stretch; 
 }
 
 .interior-info div {
-    width: 20%;
-    background-color: #dfdede;
-    padding: 3vh;
-    border-radius: 10px;
+    background-color: #F8FAFC; 
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+    border-top: 4px solid #4A90E2; 
+}
+
+.interior-info div:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
 }
 CSS;
 
@@ -963,19 +974,44 @@ a:hover {
 }
 
 .specs {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 20px;
+    margin: 50px 10%;
 }
 
 .specs div {
     display: flex;
-    justify-content: space-between;
-    margin-left: 15%;
-    margin-right: 30%;
-    font-size: 30px;
-    font-weight: 500;
-    border-bottom: 1px solid rgb(131, 131, 131);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    background-color: #F8FAFC; 
+    border-radius: 15px;
+    border: 1px solid #E2E8F0; 
+    margin: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.specs div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+}
+
+.specs div p:first-child {
+    font-size: 14px;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.specs div p:last-child {
+    font-size: 38px;
+    font-weight: bold;
+    color: #131313;
+    margin: 0;
 }
 
 .carousel-wrapper {
@@ -1029,21 +1065,26 @@ a:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.3);
-    color: white;
+    background-color: rgba(255, 255, 255, 0.9); 
+    color: #131313;
     border: none;
-    font-size: 40px;
-    padding: 20px;
+    font-size: 24px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     z-index: 10;
     border-radius: 50%;
-    transition: 0.3s;
-    user-select: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
 .carousel-btn:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-    color: black;
+    background-color: #131313;
+    color: white;
+    transform: translateY(-50%) scale(1.1); 
 }
 
 .prev-btn { left: 30px; }

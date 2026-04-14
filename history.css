@@ -213,7 +213,7 @@ a:hover {
 }
 
 .specs-banner {
-    background-color: #F8FAFC; /* Дуже світлий сірий фон для всього блоку */
+    background-color: #F8FAFC; 
     border-radius: 20px;
     margin-top: 8vh;
     margin-bottom: 8vh;

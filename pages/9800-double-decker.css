@@ -20,6 +20,11 @@ h1 {
     font-family: "Vend Sans", sans-serif;
 }
 
+p {
+    font-family: "Vend Sans", sans-serif;
+    color: #4A5568;
+}
+
 a {
     text-decoration: none;
     color: inherit;

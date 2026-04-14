@@ -12,8 +12,9 @@ body {
 }
 
 .content {
-    margin-left: 25vh;
-    margin-right: 25vh;
+    max-width: 1400px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 h1 {

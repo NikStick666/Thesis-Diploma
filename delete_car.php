@@ -29,7 +29,7 @@ if ($id > 0) {
         if (file_exists($htmlFile)) unlink($htmlFile);
         if (file_exists($cssFile)) unlink($cssFile);
 
-        // 3. Видаляємо запис з Бази Даних
+        // 3. Видаляємо запис з БД
         $delStmt = $conn->prepare("DELETE FROM cars WHERE id = ?");
         $delStmt->bind_param("i", $id);
         

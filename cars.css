@@ -27,8 +27,7 @@ a :hover {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background-color: #131313;
-    /*padding: 1rem;*/
+    background-color: #131313; 
     height: 6rem;
 }
 

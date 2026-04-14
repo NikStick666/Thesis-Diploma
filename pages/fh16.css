@@ -170,13 +170,23 @@ a:hover {
 
 .interior-info {
     margin-top: 15vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px; 
+    align-items: start;
 }
 
+
 .interior-info div {
-    width: 20%;
+    background-color: #F8FAFC;
+    padding: 30px;
+    border-radius: 15px;
+    border-top: 4px solid #131313; 
+    transition: transform 0.3s ease;
+}
+
+.interior-info div:hover {
+    transform: translateY(-5px);
 }
 
 .truck-banner {

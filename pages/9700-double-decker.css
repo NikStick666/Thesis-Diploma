@@ -20,6 +20,11 @@ h1 {
     font-family: "Vend Sans", sans-serif;
 }
 
+p {
+    font-family: "Vend Sans", sans-serif;
+    color: #4A5568;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -113,17 +118,25 @@ a:hover {
 }
 
 .interior-info {
-    margin-top: 15vh;
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    margin-left: 15vh;
-    margin-right: 15vh;
+    max-width: 1400px;
+    width: 90%;
+    margin: 10vh auto; 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px; 
+    align-items: stretch; 
 }
 
 .interior-info div {
-    width: 20%;
-    background-color: #dfdede;
-    padding: 3vh;
-    border-radius: 10px;
+    background-color: #F8FAFC; 
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+    border-top: 4px solid #4A90E2; 
+}
+
+.interior-info div:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
 }

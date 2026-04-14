@@ -20,6 +20,11 @@ h1 {
     font-family: "Vend Sans", sans-serif;
 }
 
+p {
+    font-family: "Vend Sans", sans-serif;
+    color: #4A5568;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -88,8 +93,11 @@ a:hover {
 }
 
 .photo1 img {
-    width: 1200px; 
-    height: 413px;
+    max-width: 1200px; 
+    width: 100%; 
+    height: auto; 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+    border-radius: 10px;
 }
 
 .specs-banner {

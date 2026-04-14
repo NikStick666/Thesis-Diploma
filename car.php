@@ -1,11 +1,11 @@
 <?php
-// Підключаємо базу (перевірте шлях!)
+// Підключення БД
 require_once 'login/db.php'; 
 
-// Отримуємо ID з адреси (наприклад car.php?id=10)
+// Отримуємо ID з адреси 
 $car_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-// Шукаємо машину в базі
+// Шукаємо необхідну машину в БД
 $sql = "SELECT * FROM cars WHERE id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $car_id);
@@ -26,12 +26,11 @@ if ($result->num_rows > 0) {
     <meta charset="UTF-8">
     <title><?php echo htmlspecialchars($car['title']); ?></title>
     <link rel="stylesheet" href="electric.css"> <style>
-        /* Трохи стилів для сторінки однієї машини */
         .car-details-container {
             max-width: 800px;
             margin: 50px auto;
             text-align: center;
-            color: #fff; /* Якщо фон темний */
+            color: #fff; 
         }
         .car-details-img {
             width: 100%;
