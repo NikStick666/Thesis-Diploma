@@ -22,6 +22,7 @@
     </nav>
 </header>
 <body>
+    <div class="custom-cursor"></div>
      <video autoplay muted loop playsinline src="main-bg/main-page-video.mp4" frameborder="0" class="main-bg-1"></video>
     <div class="main-page">
         <p class="main-text">FOR OUR CUSTOMERS</p>
@@ -42,13 +43,15 @@
                     <h4>moving the world</h4>
                 </div>
             </a>
-            <div class="buses-card">
-                <img src="volvo-cards/buses-card.png" alt=""
-                onmouseover="this.src='volvo-cards/buses-card-light.png'"
-                onmouseout="this.src='volvo-cards/buses-card.png'">
-                <p>BUSES</p>
-                <h4>affordable comfort for everyone</h4>
-            </div>
+            <a href="buses.html">
+                <div class="buses-card">
+                    <img src="volvo-cards/buses-card.png" alt=""
+                    onmouseover="this.src='volvo-cards/buses-card-light.png'"
+                    onmouseout="this.src='volvo-cards/buses-card.png'">
+                    <p>BUSES</p>
+                    <h4>affordable comfort for everyone</h4>
+                </div>
+            </a>
         </div>
         <div class="bottom-image">
             <img src="bottom-image/bottom-image1.png" alt="">
@@ -62,12 +65,12 @@
         <div class="footer-cars">
             <p>Volvo Cars</p>
             <a href="cars.html"><h1>Our Cars</h1></a>
-            <h1>Our Trucks</h1>
-            <h1>Our Buses</h1>
+            <a href="trucks.html"><h1>Our Trucks</h1></a>
+            <a href="buses.html"><h1>Our Buses</h1></a>
         </div>
         <div class="volvo-world">
             <p>Volvo World</p>
-            <h1>Our History</h1>
+            <a href="history.html"><h1>Our History</h1></a>
             <h1>Visit Us</h1>
         </div>
     </footer>
@@ -84,6 +87,19 @@
                     accountLink.querySelector('p').textContent = username.toUpperCase();
                 }
             }
+        });
+    </script>
+<script>
+        const cursor = document.querySelector('.custom-cursor');
+
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('a, img').forEach(link => {
+            link.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+            link.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
         });
     </script>
 </body>

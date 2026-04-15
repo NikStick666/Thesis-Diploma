@@ -232,4 +232,15 @@ function setupDragAndDrop() {
         .catch(err => alert("Connection error"))
         .finally(() => { btn.textContent = "Add Car"; btn.disabled = false; });
     });
+        const cursor = document.querySelector('.custom-cursor');
+
+    document.addEventListener('mousemove', e => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+    document.querySelectorAll('a, img').forEach(link => {
+        link.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+        link.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+    });
 }

@@ -19,7 +19,8 @@ body {
     left: 0;
     width: 30px;
     height: 30px;
-    border: 2px solid rgba(19, 19, 19, 0.5);
+    border: 2px solid #131313; 
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9); 
     border-radius: 50%;
     pointer-events: none; 
     transform: translate(-50%, -50%); 
@@ -30,7 +31,9 @@ body {
 .custom-cursor.hovered {
     width: 50px;
     height: 50px;
-    background-color: rgba(19, 19, 19, 0.1);
+    background-color: rgba(19, 19, 19, 0.1); 
+    border: 2px solid #131313; 
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9);
 }
 
 h1 {
@@ -41,12 +44,14 @@ h1 {
 a {
     text-decoration: none;
     color: inherit;
-    cursor: pointer;
-
+    cursor: none;
+    display: inline-block; 
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 a:hover {
-    text-decoration: underline;
+    opacity: 0.6; 
+    transform: translateY(-2px); 
 }
 
 .nav {
@@ -67,7 +72,6 @@ a:hover {
     font-family: "Vend Sans", sans-serif;
     font-optical-sizing: auto;
     font-size: 30px;
-    font-weight: 400;
     font-style: normal;
     font-weight: 600;
     display: flex;

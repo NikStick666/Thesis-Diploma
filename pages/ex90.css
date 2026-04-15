@@ -8,6 +8,30 @@ body {
     font-family: "Vend Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+    cursor: none;
+}
+
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #131313; 
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9); 
+    border-radius: 50%;
+    pointer-events: none; 
+    transform: translate(-50%, -50%); 
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    z-index: 99999;
+}
+
+.custom-cursor.hovered {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(19, 19, 19, 0.1); 
+    border: 2px solid #131313; 
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9);
 }
 
 h1 {
@@ -24,12 +48,14 @@ span {
 a {
     text-decoration: none;
     color: inherit;
-    cursor: pointer;
-
+    cursor: none;
+    display: inline-block; 
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-a :hover {
-    text-decoration: underline;
+a:hover {
+    opacity: 0.6; 
+    transform: translateY(-2px); 
 }
 
 .nav {
@@ -50,7 +76,6 @@ a :hover {
     font-family: "Vend Sans", sans-serif;
     font-optical-sizing: auto;
     font-size: 30px;
-    font-weight: 400;
     font-style: normal;
     font-weight: 600;
     display: flex;
@@ -400,3 +425,28 @@ span {
 .submit-drive-btn:hover { 
     background-color: #333; 
 }
+
+.back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #131313;
+    color: #FEFEFE;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.back-to-top:hover {
+    background-color: #555;
+    transform: translateY(-5px); 
+    text-decoration: none;
+}
+
+* {
+    cursor: none !important;
+}
+

@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="custom-cursor"></div>
     <div class="register-container">
     <h2>Welcome back!</h2>
     <form class="register-form" id="loginForm">
@@ -29,5 +30,18 @@
 </div>
 
 <script src="login-script.js"></script>
+<script>
+        const cursor = document.querySelector('.custom-cursor');
+
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('a, img').forEach(link => {
+            link.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+            link.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+        });
+    </script>
 </body>
 </html>

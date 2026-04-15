@@ -5,19 +5,23 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>XC90 PHEV</title>
     <link rel='stylesheet' href='xc90-phev.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
 </head>
 <header class="header">
     <nav class="nav" id="nav">
         <a href="../index.html"><img src="../logo-image/white-volvo-logo-1.png" alt="" class="volvo-logo"></a>
         <ul class="nav-list">
             <a href="../cars.html"><li><p>CARS</p></li></a>
-            <a href="trucks.html"><li><p>TRUCKS</p></li></a>
-            <a href="buses.html"><li><p>BUSES</p></li></a>
-            <a href="history.html"><li><p>HISTORY</p></li></a>
+            <a href="../trucks.html"><li><p>TRUCKS</p></li></a>
+            <a href="../buses.html"><li><p>BUSES</p></li></a>
+            <a href="../history.html"><li><p>HISTORY</p></li></a>
         </ul>
     </nav>
 </header>
 <body>
+    <div class="custom-cursor"></div>
     <div class="car-card">
         <div class="car-preview">
             <p>XC90 PHEV</p>
@@ -209,7 +213,7 @@
             </div>
             </div>
         </div>
-        <span><a href="#nav"><p>Back to top</p></a></span>
+        <a href="#nav" class="back-to-top">↑ Top</a>
     </div>
         <div id="testDriveModal" class="modal-overlay">
         <div class="modal-content">
@@ -350,6 +354,19 @@
                 submitFormBtn.disabled = false;
                 submitFormBtn.textContent = 'Confirm Booking';
             });
+        });
+    </script>
+<script>
+        const cursor = document.querySelector('.custom-cursor');
+
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('a, img').forEach(link => {
+            link.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+            link.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
         });
     </script>
 </body>

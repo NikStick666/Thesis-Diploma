@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="custom-cursor"></div>
     <header class="header">
         <nav class="nav">
             <a href="index.html"><img src="logo-image/white-volvo-logo-1.png" alt="Volvo" class="volvo-logo"></a>
@@ -81,5 +82,18 @@
     </div>
 
     <script src="profile.js"></script>
+<script>
+        const cursor = document.querySelector('.custom-cursor');
+
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('a, img').forEach(link => {
+            link.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+            link.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+        });
+    </script>
 </body>
 </html>

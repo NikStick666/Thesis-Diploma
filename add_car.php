@@ -218,7 +218,6 @@ a:hover {
     font-family: "Vend Sans", sans-serif;
     font-optical-sizing: auto;
     font-size: 30px;
-    font-weight: 400;
     font-style: normal;
     font-weight: 600;
     display: flex;
@@ -388,6 +387,7 @@ CSS;
     </nav>
 </header>
 <body>
+    <div class="custom-cursor"></div>
     <img src="../images-for-car-page/" alt="" 
     style="width: 100%; height: 60vh; object-fit: cover; object-position: 50% 70%; margin-top: 5vh;">
     <h1 style="display: flex; align-items: center; justify-content: center; letter-spacing: 5px;">
@@ -597,7 +597,6 @@ a:hover {
     font-family: "Vend Sans", sans-serif;
     font-optical-sizing: auto;
     font-size: 30px;
-    font-weight: 400;
     font-style: normal;
     font-weight: 600;
     display: flex;
@@ -715,6 +714,7 @@ $htmlContent = <<<HTML
     </nav>
 </header>
 <body>
+    <div class="custom-cursor"></div>
     <div class="car-card">
         <div class="car-preview">
             <p>{$title}</p>
@@ -854,7 +854,7 @@ $htmlContent = <<<HTML
             </div>
             </div>
         </div>
-        <span><a href="#nav"><p>Back to top</p></a></span>
+        <a href="#nav" class="back-to-top">↑ Top</a>
     </div>
     <script>
            document.addEventListener('DOMContentLoaded', () => {
@@ -937,7 +937,6 @@ a:hover {
     font-family: "Vend Sans", sans-serif;
     font-optical-sizing: auto;
     font-size: 30px;
-    font-weight: 400;
     font-style: normal;
     font-weight: 600;
     display: flex;
