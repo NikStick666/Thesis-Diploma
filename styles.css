@@ -230,8 +230,30 @@ footer {
     margin-top: 5vh;
     color: #FEFEFE;
     padding: 5vh;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
+}
+
+.headquarters {
+    text-align: left;
+}
+
+.footer-cars {
+    text-align: center;
+}
+
+.volvo-world {
+    text-align: right;
+}
+
+.disclaimer {
+    grid-column: 1 / -1; 
+    font-size: 13px;
+    color: #474747;
+    font-weight: 100;
+    text-align: center; 
+    margin-top: 4vh;
 }
 
 footer p {

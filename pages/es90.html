@@ -187,24 +187,48 @@
         <a href="#nav" class="back-to-top">↑ Top</a>
     </div>
         <div id="testDriveModal" class="modal-overlay">
-        <div class="modal-content">
-            <span class="close-btn" id="closeModalBtn">&times;</span>
-            <h2>Book a Test Drive</h2>
-            <p>Choose your preferred date and time to experience the ES90.</p>
-            <form id="testDriveForm">
-                <div class="input-group">
-                    <label>Select Date</label>
-                    <input type="date" id="driveDate" required>
-                </div>
-                <div class="input-group">
-                    <label>Select Time (09:00 - 18:00)</label>
-                    <input type="time" id="driveTime" min="09:00" max="18:00" required>
-                </div>
-                <p id="modalMsg" style="display: none; font-weight: bold; margin-top: 10px;"></p>
-                <button type="submit" class="submit-drive-btn">Confirm Booking</button>
-            </form>
+            <div class="modal-content">
+                <span class="close-btn" id="closeModalBtn">&times;</span>
+                <h2>Book a Test Drive</h2>
+                <p>Choose your preferred date and time to experience the ES90.</p>
+                <form id="testDriveForm">
+                    <div class="input-group">
+                        <label>Select Date</label>
+                        <input type="date" id="driveDate" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Select Time (09:00 - 18:00)</label>
+                        <input type="time" id="driveTime" min="09:00" max="18:00" required>
+                    </div>
+                    <p id="modalMsg" style="display: none; font-weight: bold; margin-top: 10px;"></p>
+                    <button type="submit" class="submit-drive-btn">Confirm Booking</button>
+                </form>
+            </div>
         </div>
-    </div>
+        <footer>
+        <div class="headquarters">
+            <p>Volvo Headquarters</p>
+            <a href="contacts.html"><h1>Contact Us</h1></a>
+        </div>
+        <div class="footer-cars">
+            <p>Volvo Cars</p>
+            <a href="cars.html"><h1>Our Cars</h1></a>
+            <a href="trucks.html"><h1>Our Trucks</h1></a>
+            <a href="buses.html"><h1>Our Buses</h1></a>
+        </div>
+        <div class="volvo-world">
+            <p>Volvo World</p>
+            <a href="history.html"><h1>Our History</h1></a>
+        </div>
+        <div class="disclaimer">
+            <p>
+                As part of the completion of the final project for the 121 “Software Engineering” program, the primary focus was on developing the 
+                software architecture and writing the code for the web application. To ensure a modern and user-friendly experience (UX), 
+                the graphical interface of Volvo's official website was chosen as a visual reference for the client-side. I independently 
+                implemented this interface from scratch (writing markup, styles, and scripts).
+            </p>
+        </div>
+    </footer>
     <script>
            document.addEventListener('DOMContentLoaded', () => {
             const carousels = document.querySelectorAll('.carousel-wrapper');
