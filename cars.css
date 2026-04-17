@@ -5,6 +5,7 @@ body {
     font-optical-sizing: auto;
     font-style: normal;
     cursor: none;
+    overflow-x: hidden;
 }
 
 .custom-cursor {

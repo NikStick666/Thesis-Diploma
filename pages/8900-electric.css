@@ -44,11 +44,6 @@ h1 {
     font-family: "Vend Sans", sans-serif;
 }
 
-p {
-    font-family: "Vend Sans", sans-serif;
-    color: #4A5568;
-}
-
 a {
     text-decoration: none;
     color: inherit;
@@ -76,7 +71,6 @@ a:hover {
 }
 
 .nav-list {
-    color: #FEFEFE;
     font-family: "Vend Sans", sans-serif;
     font-optical-sizing: auto;
     font-size: 30px;
@@ -89,7 +83,10 @@ a:hover {
     padding: 0;
     list-style: none;
     flex-grow: 1;
-    
+}
+
+.nav-list p {
+    color: #FEFEFE;
 }
 
 .volvo-logo {
@@ -282,4 +279,9 @@ footer h1 {
 
 * {
     cursor: none !important;
+}
+
+p {
+    font-family: "Vend Sans", sans-serif;
+    color: #4A5568;
 }

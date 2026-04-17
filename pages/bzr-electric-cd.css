@@ -76,7 +76,6 @@ a:hover {
 }
 
 .nav-list {
-    color: #FEFEFE;
     font-family: "Vend Sans", sans-serif;
     font-optical-sizing: auto;
     font-size: 30px;
@@ -89,7 +88,10 @@ a:hover {
     padding: 0;
     list-style: none;
     flex-grow: 1;
-    
+}
+
+.nav-list p {
+    color: #FEFEFE;
 }
 
 .volvo-logo {
