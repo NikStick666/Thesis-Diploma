@@ -86,7 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const menuItems = document.querySelectorAll('.sidebar-menu li');
-    const profileForm = document.getElementById('profileForm');
+
+    const profileSection = document.getElementById('profileSection'); 
     const savedCarsSection = document.getElementById('savedCarsSection');
     const testDrivesSection = document.getElementById('testDrivesSection');
 
@@ -95,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             menuItems.forEach(i => i.classList.remove('active'));
             this.classList.add('active');
 
-            profileForm.style.display = 'none';
+            profileSection.style.display = 'none';
             savedCarsSection.style.display = 'none';
             testDrivesSection.style.display = 'none';
 
@@ -103,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 savedCarsSection.style.display = 'block';
                 loadSavedCars(); 
             } else if (this.textContent === 'Profile Info') {
-                profileForm.style.display = 'block';
+                profileSection.style.display = 'block';
             } else if (this.textContent === 'Test Drives') {
                 testDrivesSection.style.display = 'block';
                 loadTestDrives();
