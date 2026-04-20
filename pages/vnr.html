@@ -21,7 +21,7 @@
     </nav>
 </header>
 <body>
-    <div class="custom-cursor"></div>
+     
     <div class="content">
         <div class="description">
             <h2>Volvo VNR. The versatile, street-smart regional haul truck.</h2>
@@ -154,17 +154,7 @@
         </div>
     </footer>
 <script>
-        const cursor = document.querySelector('.custom-cursor');
-
-        document.addEventListener('mousemove', e => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        document.querySelectorAll('a, img').forEach(link => {
-            link.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
-            link.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
-        });
+        
     </script>
 </body>
 </html>

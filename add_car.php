@@ -387,7 +387,7 @@ CSS;
     </nav>
 </header>
 <body>
-    <div class="custom-cursor"></div>
+     
     <img src="../images-for-car-page/" alt="" 
     style="width: 100%; height: 60vh; object-fit: cover; object-position: 50% 70%; margin-top: 5vh;">
     <h1 style="display: flex; align-items: center; justify-content: center; letter-spacing: 5px;">
@@ -714,7 +714,7 @@ $htmlContent = <<<HTML
     </nav>
 </header>
 <body>
-    <div class="custom-cursor"></div>
+     
     <div class="car-card">
         <div class="car-preview">
             <p>{$title}</p>

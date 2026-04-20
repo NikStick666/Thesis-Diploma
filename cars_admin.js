@@ -11,9 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     loadCarsFromDB();
-
     setupDragAndDrop();
-    
 });
 
 let fileToUpload = null; 
@@ -62,7 +60,10 @@ function createCarHTML(id, title, imageSrc, filename, isSaved = false) {
 
     const hoverCarImageSrc = imageSrc.replace(/(\.[\w\d_-]+)$/i, '-hover$1');
 
-    const heartIcon = isSaved ? '❤️' : '🤍';
+    const heartEmpty = `<img src="empty_heart.svg" alt="Save" width="6" height="6" style="pointer-events: none;">`;
+    const heartFilled = `<img src="fulled_heart.svg" alt="Saved" width="6" height="6" style="pointer-events: none;">`;
+
+    const heartIcon = isSaved ? heartFilled : heartEmpty;
 
     let html = `
         <div class="default-content">
@@ -114,7 +115,8 @@ function createCarHTML(id, title, imageSrc, filename, isSaved = false) {
         .then(res => res.json())
         .then(data => {
             if (data.success) {
-                saveBtn.textContent = (data.action === 'added') ? '❤️' : '🤍';
+                // Використовуємо innerHTML для вставки SVG картинки
+                saveBtn.innerHTML = (data.action === 'added') ? heartFilled : heartEmpty;
             } else {
                 console.error("Saving error:", data.message);
             }
@@ -232,15 +234,18 @@ function setupDragAndDrop() {
         .catch(err => alert("Connection error"))
         .finally(() => { btn.textContent = "Add Car"; btn.disabled = false; });
     });
-        const cursor = document.querySelector('.custom-cursor');
+    
+    const cursor = document.querySelector('.custom-cursor');
 
     document.addEventListener('mousemove', e => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
+        if (cursor) {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        }
     });
 
     document.querySelectorAll('a, img').forEach(link => {
-        link.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
-        link.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+        link.addEventListener('mouseenter', () => { if (cursor) cursor.classList.add('hovered'); });
+        link.addEventListener('mouseleave', () => { if (cursor) cursor.classList.remove('hovered'); });
     });
 }
