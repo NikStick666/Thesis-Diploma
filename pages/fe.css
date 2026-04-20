@@ -244,7 +244,8 @@ span {
 footer {
     background-color: #131313;
     width: 97%;
-    height: 30vh;
+    min-height: 30vh;
+    height: auto;
     margin-top: 5vh;
     color: #FEFEFE;
     padding: 5vh;

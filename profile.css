@@ -6,6 +6,14 @@ body {
     cursor: none;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: none;
+    display: inline-block; 
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
 .custom-cursor {
     position: fixed;
     top: 0;
@@ -295,7 +303,8 @@ body {
 footer {
     background-color: #131313;
     width: 97%;
-    height: 30vh;
+    min-height: 30vh;
+    height: auto;
     margin-top: 5vh;
     color: #FEFEFE;
     padding: 5vh;
