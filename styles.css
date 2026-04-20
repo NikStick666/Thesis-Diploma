@@ -108,6 +108,10 @@ a:hover {
     object-fit: cover;
 }
 
+.cards a:hover {
+    opacity: 1; 
+}
+
 .cars-card {
     background-color: #FFFFFF;
     width: 355px;
