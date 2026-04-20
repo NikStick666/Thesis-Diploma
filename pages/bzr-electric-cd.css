@@ -270,15 +270,19 @@ footer {
 .disclaimer {
     grid-column: 1 / -1; 
     font-size: 13px;
-    color: #474747;
     font-weight: 100;
     text-align: center; 
     margin-top: 4vh;
 }
 
+.disclaimer p{
+    color: #474747;
+}
+
 footer p {
     font-family: "Vend Sans", sans-serif;
     font-optical-sizing: auto;
+    color: #474747;
     font-size: 15px;
     font-weight: 300;
     font-style: normal;
