@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.removeItem('isLoggedIn');
         localStorage.removeItem('username');
         localStorage.removeItem('isAdmin');
-        window.location.href = 'login/login.html';
+        window.location.href = 'login/register.html';
     });
 
     const menuItems = document.querySelectorAll('.sidebar-menu li');
