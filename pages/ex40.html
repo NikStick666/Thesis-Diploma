@@ -261,7 +261,7 @@
             const isLoggedIn = localStorage.getItem('isLoggedIn');
             if (isLoggedIn !== 'true') {
                 alert('Please log in or register to book a test drive.');
-                window.location.href = '../login/login.html'; 
+                window.location.href = '../login/register.html';
                 return;
             }
             const today = new Date().toISOString().split('T')[0];
