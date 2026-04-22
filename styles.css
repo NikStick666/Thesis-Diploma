@@ -2,7 +2,7 @@
     display: none;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1199px) {
     #desktop-content {
         display: none !important;
     }
@@ -113,8 +113,10 @@ a:hover {
 }
 
 .main-bg-1 {
-    width: 1920px;
-    height: 1080px;
+    width: 100%; 
+    height: auto; 
+    object-fit: cover; 
+    display: block;
 }
 
 .main-page p {
@@ -127,8 +129,9 @@ a:hover {
 }
 
 .main-page {
-    margin-left: 335px;
-    margin-right: 335px;
+    max-width: 1250px; 
+    margin: 0 auto; 
+    padding: 0 20px;
 }
 
 .cards {
