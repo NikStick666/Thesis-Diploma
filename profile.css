@@ -14,8 +14,6 @@ a {
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
- 
-
 .header { 
     background-color: #131313; 
     padding: 10px 0; 
