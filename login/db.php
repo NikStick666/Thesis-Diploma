@@ -7,6 +7,6 @@ $dbname = "4752423_volvothesis";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
-    die("Помилка підключення: " . $conn->connect_error);
+    die("Connection error: " . $conn->connect_error);
 }
 ?>
