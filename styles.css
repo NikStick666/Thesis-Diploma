@@ -1,3 +1,46 @@
+#mobile-error-screen {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    #desktop-content {
+        display: none !important;
+    }
+
+    #mobile-error-screen {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #131313; 
+        color: #FEFEFE;
+        text-align: center;
+        z-index: 999999; 
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    #mobile-error-screen h2 {
+        font-family: "Vend Sans", sans-serif;
+        font-size: 30px;
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+
+    #mobile-error-screen p {
+        font-family: "Vend Sans", sans-serif;
+        font-size: 16px;
+        font-weight: 300;
+        color: #A0A0A0;
+        line-height: 1.5;
+    }
+}
+
 body {
     font-family: 'Oswald', sans-serif;
     background-size: cover;
