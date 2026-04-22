@@ -25,14 +25,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $response['username'] = $db_username;
                 $response['isAdmin'] = $isAdmin;
             } else {
-                $response['message'] = 'Невірний пароль!';
+                $response['message'] = 'Incorrect password!';
             }
         } else {
-            $response['message'] = 'Користувача не знайдено!';
+            $response['message'] = 'User not found!';
         }
         $stmt->close();
     } else {
-        $response['message'] = 'Помилка бази даних: ' . $conn->error;
+        $response['message'] = 'Database error: ' . $conn->error;
     }
     $conn->close();
 }

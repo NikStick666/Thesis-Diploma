@@ -339,6 +339,7 @@ span {
 .modal-content {
     background-color: white;
     padding: 40px;
+    border-top: 4px solid #4A90E2;
     border-radius: 10px;
     width: 90%;
     max-width: 400px;
@@ -382,7 +383,7 @@ span {
 .modal-content input {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #4A90E2;
     border-radius: 5px;
     box-sizing: border-box;
     font-family: inherit;

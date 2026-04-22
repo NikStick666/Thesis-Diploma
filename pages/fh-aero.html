@@ -8,6 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.volvocars.com/static/shared/images/favicons/apple-touch-icon-precomposed-180x180.v2.png" />
+    <link rel="icon" sizes="16x16" href="https://www.volvocars.com/static/shared/images/favicons/favicon-16x16.v2.png" />
+    <link rel="icon" sizes="32x32" href="https://www.volvocars.com/static/shared/images/favicons/favicon-32x32.v2.png" />
+    <link rel="icon" sizes="192x192" href="https://www.volvocars.com/static/shared/images/favicons/favicon-192x192.v2.png" />
+    <link rel="icon" type="image/svg+xml" href="https://www.volvocars.com/static/shared/images/favicons/favicon-16x16.v2.svg" />
 </head>
 <header class="header">
     <nav class="nav" id="nav">
@@ -17,6 +22,7 @@
             <a href="../trucks.html"><li><p>TRUCKS</p></li></a>
             <a href="../buses.html"><li><p>BUSES</p></li></a>
             <a href="../history.html"><li><p>HISTORY</p></li></a>
+            <a href="../login/register.html" id="accountLink"><li><p>ACCOUNT</p></li></a>
         </ul>
     </nav>
 </header>
@@ -210,7 +216,19 @@
         </div>
     </footer>
 <script>
-        
+        document.addEventListener('DOMContentLoaded', () => {
+            const accountLink = document.getElementById('accountLink');
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const username = localStorage.getItem('username');
+
+            if (isLoggedIn === 'true') {
+                accountLink.href = 'profile.html'; 
+                
+                if (username) {
+                    accountLink.querySelector('p').textContent = username.toUpperCase();
+                }
+            }
+        });
     </script>
 </body>
 </html>

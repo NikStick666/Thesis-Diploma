@@ -20,7 +20,7 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
             
             if (data.success) {
                 msgBox.style.color = '#28a745'; 
-                msgBox.textContent = "Реєстрація успішна! Перенаправлення...";
+                msgBox.textContent = "Registration succesful! Redirecting...";
                 
                 setTimeout(() => {
                     window.location.href = 'index.html'; 
@@ -37,7 +37,7 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
             console.error('Error:', error);
             msgBox.style.display = 'block';
             msgBox.style.color = 'red';
-            msgBox.textContent = "Помилка сервера. Спробуйте пізніше.";
+            msgBox.textContent = "Server error. Try again later!";
             submitBtn.disabled = false;
             submitBtn.textContent = "Sign Up";
         });

@@ -17,7 +17,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error('Мережева помилка');
+            throw new Error('Network error');
         }
         return response.json(); 
     })

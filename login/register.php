@@ -11,19 +11,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pass = $_POST['password'];
 
     if (empty($user) || empty($email) || empty($pass)) {
-        $response['message'] = "Будь ласка, заповніть всі поля!";
+        $response['message'] = "Please, fill all the fields";
         echo json_encode($response);
         exit;
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $response['message'] = "Невірний формат Email!";
+        $response['message'] = "Incorrect email format";
         echo json_encode($response);
         exit;
     }
 
     if (strlen($pass) < 8 || !preg_match("/[A-Z]/", $pass) || !preg_match("/[0-9]/", $pass)) {
-        $response['message'] = "Пароль занадто слабкий (потрібно 8+ символів, цифра та велика літера)";
+        $response['message'] = "Password is too weak (needs at least 8 symbols, number and capital letter)";
         echo json_encode($response);
         exit;
     }
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($stmt->num_rows > 0) {
         $response['success'] = false;
-        $response['message'] = "Користувач з таким Email вже існує!"; 
+        $response['message'] = "User with this username is already exists!"; 
         
         $stmt->close();
         echo json_encode($response);
@@ -54,13 +54,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         if ($stmt->execute()) {
             $response['success'] = true;
-            $response['message'] = "Реєстрація успішна!";
+            $response['message'] = "Registration completed succesfully!";
         } else {
-            $response['message'] = "Помилка при збереженні: " . $stmt->error;
+            $response['message'] = "Error while saving: " . $stmt->error;
         }
         $stmt->close();
     } else {
-        $response['message'] = "Помилка бази даних: " . $conn->error;
+        $response['message'] = "Database error: " . $conn->error;
     }
     
     $conn->close();
