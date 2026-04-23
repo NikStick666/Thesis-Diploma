@@ -78,11 +78,33 @@ a:hover {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-size: 65px;
-    font-weight: 500;
     width: 100%;
     height: auto;
     background-color: #F5F3EF;
+}
+
+.car-info {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
+}
+
+.car-info .model {
+    font-size: 65px;
+    font-weight: 500;
+    margin: 0; 
+}
+
+.car-info .price {
+    font-size: 20px;
+    font-weight: 100;
+    letter-spacing: 5px;
+    color: #1A1A1A;
+    background-color: #E8E6E1; 
+    padding: 6px 16px;
+    border-radius: 8px; 
+    display: inline-block; 
+    margin: 0;
 }
 
 .car-specs h2 {
