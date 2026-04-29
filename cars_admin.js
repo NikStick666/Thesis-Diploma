@@ -60,8 +60,8 @@ function createCarHTML(id, title, imageSrc, filename, isSaved = false) {
 
     const hoverCarImageSrc = imageSrc.replace(/(\.[\w\d_-]+)$/i, '-hover$1');
 
-    const heartEmpty = `<img src="empty_heart.svg" alt="Save" width="6" height="6" style="pointer-events: none;">`;
-    const heartFilled = `<img src="fulled_heart.svg" alt="Saved" width="6" height="6" style="pointer-events: none;">`;
+    const heartEmpty = `<img src="SVGs/empty_heart.svg" alt="Save" width="6" height="6" style="pointer-events: none;">`;
+    const heartFilled = `<img src="SVGs/fulled_heart.svg" alt="Saved" width="6" height="6" style="pointer-events: none;">`;
 
     const heartIcon = isSaved ? heartFilled : heartEmpty;
 
@@ -115,7 +115,6 @@ function createCarHTML(id, title, imageSrc, filename, isSaved = false) {
         .then(res => res.json())
         .then(data => {
             if (data.success) {
-                // Використовуємо innerHTML для вставки SVG картинки
                 saveBtn.innerHTML = (data.action === 'added') ? heartFilled : heartEmpty;
             } else {
                 console.error("Saving error:", data.message);
@@ -233,19 +232,5 @@ function setupDragAndDrop() {
         })
         .catch(err => alert("Connection error"))
         .finally(() => { btn.textContent = "Add Car"; btn.disabled = false; });
-    });
-    
-    const cursor = document.querySelector('.custom-cursor');
-
-    document.addEventListener('mousemove', e => {
-        if (cursor) {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        }
-    });
-
-    document.querySelectorAll('a, img').forEach(link => {
-        link.addEventListener('mouseenter', () => { if (cursor) cursor.classList.add('hovered'); });
-        link.addEventListener('mouseleave', () => { if (cursor) cursor.classList.remove('hovered'); });
     });
 }

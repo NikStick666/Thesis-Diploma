@@ -171,7 +171,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         driveDiv.innerHTML = `
                             <div class="test-drive-info">
                                 <h3>${drive.car_title}</h3>
-                                <p>📅 ${formattedDate} &nbsp;|&nbsp; ⏰ ${formattedTime}</p>
+                                <p style="display: flex; align-items: center; gap: 5px; margin: 0;">
+                                    <img src="SVGs/calendar.svg" alt="Дата" width="16" height="16">
+                                    ${formattedDate} &nbsp;|&nbsp; 
+                                    <img src="SVGs/clock.svg" alt="Час" width="16" height="16">
+                                    ${formattedTime}
+                                </p>
                             </div>
                             <div class="status-badge ${statusClass}">
                                 ${drive.status}
