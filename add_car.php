@@ -1,33 +1,45 @@
 <?php
+
+// Підключення до БД
 require_once 'login/db.php'; 
 
 header('Content-Type: application/json');
 $response = array('success' => false, 'message' => '');
 
+// Вказівка на обробку лише POST запитів 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = $_POST['title'];
     $description = $_POST['description'];
     $category = $_POST['category']; 
     
+    // Генерація slug із заголовку
     $slug = strtolower(trim($title));
     $slug = preg_replace('/[^a-z0-9]+/', '-', $slug);
     $slug = trim($slug, '-');
 
+    // Генерація імен файлів із назви моделі
     $htmlFilename = $slug . '.html';
     $cssFilename = $slug . '.css';
 
+    // Перевірка щодо того чи було коректно завантажено зображення
     if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
         $uploadDir = 'uploads/'; 
+        // Створення папки uploads у випадку якщо її немає
         if (!is_dir($uploadDir)) mkdir($uploadDir, 0777, true);
 
+        // Генерація унікального ім'я для файлу зображення через TimeStamp аби уникнути випадкового перезапису існуючого файлу
         $imageName = time() . '_' . basename($_FILES['image']['name']);
         $uploadFile = $uploadDir . $imageName;
 
+        // Переміщення тимчасового файлу у постійну директорію
         if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile)) {
             $dbImagePath = 'uploads/' . $imageName; 
             $pagesDir = 'pages/';
             
+            // Створення папки Pages у випадку, якщо її ще не існує
             if (!is_dir($pagesDir)) mkdir($pagesDir, 0777, true);
+
+            // Вибір необхідного шаблону за категорією
             if ($category === 'truck' || $category === 'truck') {
                 // ГЕНЕРАЦІЯ HTML ДЛЯ ВАНТАЖІВОК 
                 $htmlContent = <<<HTML
@@ -1136,13 +1148,16 @@ span {
 }
 CSS; }
 
+            // Запис згенерованих HTML та CSS файлів у директорію Pages
             file_put_contents($pagesDir . $htmlFilename, $htmlContent);
             file_put_contents($pagesDir . $cssFilename, $cssContent);
 
+            // Збереження запису про автомобіль у БД
             $stmt = $conn->prepare("INSERT INTO cars (title, description, image_path, page_filename, category) VALUES (?, ?, ?, ?, ?)");
             $stmt->bind_param("sssss", $title, $description, $dbImagePath, $htmlFilename, $category);
             
             if ($stmt->execute()) {
+                // Повернення успішної відповіді із даними нового запису
                 $response['success'] = true;
                 $response['newCar'] = array(
                     'id' => $stmt->insert_id,
@@ -1151,14 +1166,15 @@ CSS; }
                     'filename' => $htmlFilename 
                 );
             } else {
-                $response['message'] = 'Помилка бази даних: ' . $conn->error;
+                $response['message'] = 'Database Error: ' . $conn->error;
             }
         } else {
-            $response['message'] = 'Помилка завантаження фото';
+            $response['message'] = 'Error while uploading a photo';
         }
     } else {
-        $response['message'] = 'Файл не обрано';
+        $response['message'] = 'No file selected';
     }
 }
+// Повернення JSON-відповіді клієнту
 echo json_encode($response);
 ?>

@@ -2,14 +2,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     const currentUsername = localStorage.getItem('username');
 
+    // Якщо користувач не авторизований - перенаправлення на сторінку авторизації
     if (isLoggedIn !== 'true' || !currentUsername) {
         window.location.href = 'login/login.html';
         return;
     }
 
+    // Заповнення базових полей профілю з localStorage
     document.getElementById('profUsername').value = currentUsername;
     document.getElementById('sidebarUsername').textContent = currentUsername;
 
+    // Завантаження повних даних профілю з сервера
+    // t=Date.now() та cache: "no-store" запобігають кешуванню браузером старих даних
     fetch(`get_profile.php?username=${currentUsername}&t=${Date.now()}`, { cache: "no-store" })
         .then(res => res.json())
         .then(data => {
@@ -19,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.getElementById('profFullName').value = data.data.full_name;
                 }
                 
+                // Оновлення аватару у сайдбарі та головному фото
                 const avatarPath = `uploads/avatars/${data.data.profile_picture}?t=${Date.now()}`;
                 document.getElementById('sidebarAvatar').src = avatarPath;
                 document.getElementById('mainAvatar').src = avatarPath;
@@ -26,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(err => console.error("Error fetching profile:", err));
 
+    // Показ прев'ю нового аватару після вибору фото    
     const avatarInput = document.getElementById('avatarInput');
     avatarInput.addEventListener('change', function() {
         if (this.files && this.files[0]) {
@@ -37,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Обробник збереженних змін профілю
     document.getElementById('profileForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -44,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const msgBox = document.getElementById('profile-message');
         const submitBtn = this.querySelector('.save-btn');
 
+        // Блокування кнопки на час запиту аби уникнути подвійного підтвердження
         submitBtn.disabled = true;
         submitBtn.textContent = "Saving...";
         msgBox.style.display = 'none';
@@ -56,14 +64,15 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             msgBox.style.display = 'block';
             if (data.success) {
-                msgBox.style.color = '#28a745';
+                msgBox.style.color = '#28a745'; // Зелений колір сигналізує про успіх
                 msgBox.textContent = data.message;
                 
+                // Якщо аватар змінився - він оновлюється і у сайдбарі
                 if (data.new_avatar) {
                     document.getElementById('sidebarAvatar').src = `uploads/avatars/${data.new_avatar}`;
                 }
             } else {
-                msgBox.style.color = '#dc3545';
+                msgBox.style.color = '#dc3545'; // Червоний колір сигналізує про помилку
                 msgBox.textContent = data.message;
             }
         })
@@ -73,11 +82,13 @@ document.addEventListener('DOMContentLoaded', () => {
             msgBox.textContent = "Server Error!";
         })
         .finally(() => {
+            // Розблокування кнопки незалежно від результату 
             submitBtn.disabled = false;
             submitBtn.textContent = "Save Changes";
         });
     });
 
+    // Обробник виходу з акаунту очищає всі дані з localStorage 
     document.getElementById('logoutBtn').addEventListener('click', () => {
         localStorage.removeItem('isLoggedIn');
         localStorage.removeItem('username');
@@ -91,11 +102,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedCarsSection = document.getElementById('savedCarsSection');
     const testDrivesSection = document.getElementById('testDrivesSection');
 
+    // Перемикання між секціями профілю через сайдбар
     menuItems.forEach(item => {
         item.addEventListener('click', function() {
             menuItems.forEach(i => i.classList.remove('active'));
             this.classList.add('active');
 
+            // Приховуються всі секції перед показом обраної
             profileSection.style.display = 'none';
             savedCarsSection.style.display = 'none';
             testDrivesSection.style.display = 'none';
@@ -131,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span class="arrow-icon">→</span>
                         `;
                         
+                        // Клік на збережене авто переводить користувача на сторінку цього авто
                         carDiv.style.cursor = "pointer";
                         carDiv.addEventListener('click', () => {
                             window.location.href = `pages/${car.page_filename}`;
@@ -162,11 +176,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         const driveDiv = document.createElement('div');
                         driveDiv.className = 'test-drive-item';
                         
+                        // Формування дати у вигляді ДД.ММ.РРРР та видалення секунд з часу
                         const dateObj = new Date(drive.date);
                         const formattedDate = dateObj.toLocaleDateString('uk-UA');
                         const formattedTime = drive.time.substring(0, 5); 
                         
-                        const statusClass = drive.status.toLowerCase() === 'confirmed' ? 'status-confirmed' : 'status-pending';
+                        // Визначення CSS класу статусу для відповідного кольору
+                        const statusClass = drive.status.trim().toLowerCase() === 'confirmed' ? 'status-confirmed' : 'status-pending';
 
                         driveDiv.innerHTML = `
                             <div class="test-drive-info">

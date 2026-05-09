@@ -3,6 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 header('Content-Type: application/json');
+// Підключення до БД
 require_once 'login/db.php';
 
 $response = array('success' => false, 'drives' => array(), 'message' => '');
@@ -10,6 +11,8 @@ $response = array('success' => false, 'drives' => array(), 'message' => '');
 if (isset($_GET['username'])) {
     $username = trim($_GET['username']);
 
+    // Отримання усіх заявок користувача з назвою авто через JOIN
+    // Сортування за датою та часом у порядку зростання
     $sql = "SELECT td.id, td.drive_date, td.drive_time, td.status, c.title 
             FROM `test_drives` td 
             JOIN `cars` c ON td.car_id = c.id 
@@ -25,6 +28,7 @@ if (isset($_GET['username'])) {
             $stmt->bind_result($id, $drive_date, $drive_time, $status, $car_title);
             
             $drives = array();
+            // Збірка усіх записів на тест-драйви у єдиний масив 
             while ($stmt->fetch()) {
                 $drives[] = array(
                     'id' => $id,
@@ -37,6 +41,7 @@ if (isset($_GET['username'])) {
             $response['success'] = true;
             $response['drives'] = $drives;
         } else {
+            // Якщо записів немає - повертається порожній масив
             $response['success'] = true; 
             $response['drives'] = array();
         }
@@ -47,6 +52,6 @@ if (isset($_GET['username'])) {
 } else {
     $response['message'] = "Username not entered";
 }
-
+// Повернення списку тест-драйвів у JSON
 echo json_encode($response);
 ?>

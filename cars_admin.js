@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const adminPanel = document.getElementById('adminPanel');
     const isAdmin = localStorage.getItem('isAdmin'); 
 
+    // Адмін-панель відображається або ховається в залежності від ролі авторизованого користувача
     if (isAdmin === 'true') {
         if (adminPanel) adminPanel.classList.remove('hidden'); 
         document.body.classList.add('is-admin');
@@ -14,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupDragAndDrop();
 });
 
-let fileToUpload = null; 
+let fileToUpload = null; // Збереження файлу зображення перед відправкою на сервер
 
 function loadCarsFromDB() {
     const listContainer = document.getElementById('carContainer'); 
@@ -23,6 +24,7 @@ function loadCarsFromDB() {
     const categoryInput = document.getElementById('carCategory');
     const category = categoryInput ? categoryInput.value : 'electric';
     
+    // Підвантаження списку автомобілів в залежності від обраної категорії
     fetch(`get_cars.php?category=${category}`) 
         .then(response => response.json())
         .then(cars => {
@@ -30,9 +32,12 @@ function loadCarsFromDB() {
             const isLoggedIn = localStorage.getItem('isLoggedIn');
 
             if (isLoggedIn === 'true' && currentUsername) {
+                // Якщо користувач авторизований - отримує його збережені авто
+                // t=Date.now() запобігає кешуванню цих даних у браузері
                 fetch(`get_saved_cars.php?username=${currentUsername}&t=${Date.now()}`)
                     .then(res => res.json())
                     .then(savedData => {
+                        // Збірка масиву ідентифікаторів збережених авто
                         const savedCarIds = (savedData.success && savedData.cars) 
                             ? savedData.cars.map(c => c.id) 
                             : [];
@@ -42,8 +47,9 @@ function loadCarsFromDB() {
                             createCarHTML(car.id, car.title, car.image_path, car.page_filename, isSaved);
                         });
                     })
-                    .catch(err => console.error("Помилка завантаження збережених авто:", err));
+                    .catch(err => console.error("Error loading saved cars:", err));
             } else {
+                // Для неавторизованого користувача - усі авто без мітки "збережено"
                 cars.forEach(car => {
                     createCarHTML(car.id, car.title, car.image_path, car.page_filename, false);
                 });
@@ -58,6 +64,7 @@ function createCarHTML(id, title, imageSrc, filename, isSaved = false) {
     
     carDiv.classList.add('car-card-dynamic', 'hover-effect-card');
 
+    // Формування шляху до hover-зображення, шляхом додавання приставки -hover у кінці назви файлу, перед розширенням
     const hoverCarImageSrc = imageSrc.replace(/(\.[\w\d_-]+)$/i, '-hover$1');
 
     const heartEmpty = `<img src="SVGs/empty_heart.svg" alt="Save" width="6" height="6" style="pointer-events: none;">`;
@@ -80,6 +87,7 @@ function createCarHTML(id, title, imageSrc, filename, isSaved = false) {
     
     carDiv.innerHTML = html;
 
+    // Кнопка видалення є доступною лише для користувача-адміна
     const deleteBtn = document.createElement('button');
     deleteBtn.innerHTML = '×'; 
     deleteBtn.className = 'delete-car-btn';
@@ -94,6 +102,7 @@ function createCarHTML(id, title, imageSrc, filename, isSaved = false) {
         carDiv.appendChild(deleteBtn);
     }
 
+    // Обробник для кнопки "збереження в обране"
     const saveBtn = carDiv.querySelector('.save-btn-heart');
     saveBtn.addEventListener('click', (e) => {
         e.stopPropagation(); 
@@ -107,6 +116,7 @@ function createCarHTML(id, title, imageSrc, filename, isSaved = false) {
             return;
         }
 
+        // Відправка запиту на toggle_save.php. Якщо збережено - прибирається, якщо ні - додається 
         fetch('toggle_save.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -115,6 +125,7 @@ function createCarHTML(id, title, imageSrc, filename, isSaved = false) {
         .then(res => res.json())
         .then(data => {
             if (data.success) {
+                // Оновлення кнопки збереження в залежності від дії сервера
                 saveBtn.innerHTML = (data.action === 'added') ? heartFilled : heartEmpty;
             } else {
                 console.error("Saving error:", data.message);
@@ -123,6 +134,7 @@ function createCarHTML(id, title, imageSrc, filename, isSaved = false) {
         .catch(err => console.error("Connection error:", err));
     });
 
+    // Клік на картку - перехід на сторінку авто
     carDiv.style.cursor = "pointer";
     carDiv.addEventListener('click', () => {
         if (filename) {
@@ -132,6 +144,7 @@ function createCarHTML(id, title, imageSrc, filename, isSaved = false) {
         }
     });
 
+    // Додавання картки на початок списку, аби нові автомобілі були першими
     listContainer.prepend(carDiv); 
 }
 
@@ -148,7 +161,7 @@ function deleteCar(id, carElement) {
     .then(res => res.json())
     .then(data => {
         if (data.success) {
-            carElement.remove();
+            carElement.remove(); // Видалення картки з DOM без перезавантаження сторінки
             alert("Car and files are deleted!");
         } else {
             alert("Error: " + data.message);
@@ -165,14 +178,17 @@ function setupDragAndDrop() {
 
     if (!dropArea || !form) return;
 
+    // Клік на обрану зону відкриває стандартне вікно вибору файлу
     dropArea.addEventListener('click', () => { if(fileElem) fileElem.click(); });
 
+    // Блокування стандартної поведінки браузера у відношенні до drag-подій
     ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
         dropArea.addEventListener(eventName, (e) => {
             e.preventDefault(); e.stopPropagation();
         }, false);
     });
 
+    // Підсвітка зони при перетягуванні файла над нею
     ['dragenter', 'dragover'].forEach(() => dropArea.classList.add('highlight'));
     ['dragleave', 'drop'].forEach(() => dropArea.classList.remove('highlight'));
 
@@ -187,6 +203,7 @@ function setupDragAndDrop() {
         });
     }
 
+    // Збереження файлу і показ його прев'ю через FileReader
     function handleFiles(files) {
         if (files.length > 0) {
             fileToUpload = files[0];
@@ -208,13 +225,15 @@ function setupDragAndDrop() {
         const categoryInput = document.getElementById('carCategory'); 
 
         if (!fileToUpload) { alert("Choose an image!"); return; }
-
+        
+        // Формування FormData для відправки файлу разом із текстовими полями
         const formData = new FormData();
         formData.append('title', titleInput.value);
         formData.append('description', descInput ? descInput.value : '');
         formData.append('category', categoryInput ? categoryInput.value : 'electric'); 
         formData.append('image', fileToUpload);
 
+        // Блокування кнопки на час запиту аби уникнути подвійного підтвердження 
         const btn = form.querySelector('button');
         btn.textContent = "Creating...";
         btn.disabled = true;
@@ -223,6 +242,7 @@ function setupDragAndDrop() {
         .then(res => res.json())
         .then(data => {
             if (data.success) {
+                // Додавання нової картки в DOM без перезавантаження сторінки
                 createCarHTML(data.newCar.id, data.newCar.title, data.newCar.image, data.newCar.filename);
                 form.reset();
                 if (previewImg) { previewImg.style.display = 'none'; previewImg.src = ''; }

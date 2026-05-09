@@ -27,6 +27,11 @@
     </nav>
 </header>
 <body>
+    <div style="position: absolute; width: 0; height: 0; overflow: hidden; z-index: -1;"> <!--Попереднє завантаження необхідних зображень в кеш браузера-->
+        <img src="volvo-cards/cars-card-light.webp" alt="">
+        <img src="volvo-cards/trucks-card-light.webp" alt="">
+        <img src="volvo-cards/buses-card-light.webp" alt="">
+    </div>
    <div id="mobile-error-screen">
         <img src="mobile-device-error.png" alt="" style="width: 200px; margin-bottom: 30px;">
         <h2>Oops! Screen is too small.</h2>
@@ -39,7 +44,7 @@
             <div class="cards">
                 <a href="cars.html"><div class="cars-card">
                     <img src="volvo-cards/cars-card.png" alt=""
-                        onmouseover="this.src='volvo-cards/cars-card-light.png'"
+                        onmouseover="this.src='volvo-cards/cars-card-light.webp'"
                         onmouseout="this.src='volvo-cards/cars-card.png'">
                     <p>CARS</p>
                     <h4>pleasure of driving</h4>
@@ -47,7 +52,7 @@
                 <a href="trucks.html">
                     <div class="trucks-card">
                         <img src="volvo-cards/trucks-card.png" alt=""
-                        onmouseover="this.src='volvo-cards/trucks-card-light.png'"
+                        onmouseover="this.src='volvo-cards/trucks-card-light.webp'"
                         onmouseout="this.src='volvo-cards/trucks-card.png'">
                         <p>TRUCKS</p>
                         <h4>moving the world</h4>
@@ -56,7 +61,7 @@
                 <a href="buses.html">
                     <div class="buses-card">
                         <img src="volvo-cards/buses-card.png" alt=""
-                        onmouseover="this.src='volvo-cards/buses-card-light.png'"
+                        onmouseover="this.src='volvo-cards/buses-card-light.webp'"
                         onmouseout="this.src='volvo-cards/buses-card.png'">
                         <p>BUSES</p>
                         <h4>affordable comfort for everyone</h4>
@@ -94,14 +99,19 @@
         </footer>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        // Виконання коду тільки після повного завантаження DOM
+        document.addEventListener('DOMContentLoaded', () => { 
             const accountLink = document.getElementById('accountLink');
+
+            // Отримання даних користувача про його статус та ім'я
             const isLoggedIn = localStorage.getItem('isLoggedIn');
             const username = localStorage.getItem('username');
 
+            // Далі якщо користувач авторизований - змінюється посилання через кнопку
             if (isLoggedIn === 'true') {
                 accountLink.href = 'profile.html'; 
                 
+                // Замість напису ACCOUNT - з'являється напис ім'я користувача яке в нього вказано (у верхньому регістрі)
                 if (username) {
                     accountLink.querySelector('p').textContent = username.toUpperCase();
                 }

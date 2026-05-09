@@ -586,18 +586,22 @@
     </footer>
 <a href="#nav" class="back-to-top">↑ Top</a>
 <script>
+    // Оновлення ширини прогрес-бару в залежності від позиції скролу
     window.onscroll = function() {
     let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    // Розрахунок відсотку прокрученого контенту 
     let scrolled = (winScroll / height) * 100;
     document.getElementById("myBar").style.width = scrolled + "%";
     };
+
+    // Додавання класу active до елементів з класом reveal коли ті входять у зону видимості користувача
     function reveal() {
         var reveals = document.querySelectorAll(".reveal");
         for (var i = 0; i < reveals.length; i++) {
             var windowHeight = window.innerHeight;
             var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 100; 
+            var elementVisible = 100; // Значення відступу у пікселях до нижнього краю екрану
 
             if (elementTop < windowHeight - elementVisible) {
             reveals[i].classList.add("active");
@@ -605,8 +609,9 @@
         }
     }
     window.addEventListener("scroll", reveal);
-    reveal();
+    reveal(); // Викликається одразу аби активувати елементи які видимі одразу, без скролу
 
+    // Перевірка авторизації та оновлення посилання на акаунт
     document.addEventListener('DOMContentLoaded', () => {
             const accountLink = document.getElementById('accountLink');
             const isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -615,6 +620,7 @@
             if (isLoggedIn === 'true') {
                 accountLink.href = 'profile.html'; 
                 
+                // Зміна напису ACCOUNT на ім'я користувача
                 if (username) {
                     accountLink.querySelector('p').textContent = username.toUpperCase();
                 }

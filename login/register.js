@@ -1,3 +1,4 @@
+// Обробник підтвердження форми реєстрації
 document.getElementById('registerForm').addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -5,6 +6,7 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
         const msgBox = document.getElementById('response-message');
         const submitBtn = this.querySelector('button');
 
+        // Блокування кнопки на момент обробки запиту аби уникнути подвійного підтвердження
         submitBtn.disabled = true;
         submitBtn.textContent = "Checking...";
         
@@ -22,9 +24,10 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
                 msgBox.style.color = '#28a745'; 
                 msgBox.textContent = "Registration succesful! Redirecting...";
                 
+                // Невелика затримка перед редіректом
                 setTimeout(() => {
-                    window.location.href = 'index.html'; 
-                }, 3000);
+                    window.location.href = '../index.html'; 
+                }, 800);
             } else {
                 msgBox.style.color = '#dc3545'; 
                 msgBox.textContent = data.message; 
@@ -34,6 +37,7 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
             }
         })
         .catch(error => {
+            // Мережева помилка або некоректна відповідь від сервера
             console.error('Error:', error);
             msgBox.style.display = 'block';
             msgBox.style.color = 'red';

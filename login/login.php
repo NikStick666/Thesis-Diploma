@@ -1,6 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
+// Підключення до БД
 require_once 'db.php';
 
 $response = array('success' => false, 'message' => '');
@@ -9,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    // Отримання даних про користувача
     $sql = "SELECT id, username, password, isAdmin FROM `volvo-logins-table` WHERE username = ?";
     
     if ($stmt = $conn->prepare($sql)) {
@@ -20,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bind_result($id, $db_username, $db_password_hash, $isAdmin);
             $stmt->fetch();
 
+            // Порівняння введеного пароля з хешем у БД
             if (password_verify($password, $db_password_hash)) {
                 $response['success'] = true;
                 $response['username'] = $db_username;
@@ -37,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 
+// Повернення результату у форматі JSON
 echo json_encode($response);
 exit;
 ?>

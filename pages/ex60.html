@@ -401,7 +401,7 @@
             const username = localStorage.getItem('username');
 
             if (isLoggedIn === 'true') {
-                accountLink.href = 'profile.html'; 
+                accountLink.href = '../profile.html'; 
                 
                 if (username) {
                     accountLink.querySelector('p').textContent = username.toUpperCase();

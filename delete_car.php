@@ -4,12 +4,12 @@ require_once 'login/db.php';
 header('Content-Type: application/json');
 $response = array('success' => false, 'message' => '');
 
-// Отримуємо ID машини, яку треба видалити
+// Визначення ідентифікатора авто, яке треба видалити
 $input = json_decode(file_get_contents('php://input'), true);
 $id = isset($input['id']) ? intval($input['id']) : 0;
 
 if ($id > 0) {
-    // 1. Спочатку дізнаємось імена файлів, щоб видалити їх
+    // Визначення ім'я файлів для їх видалення
     $sql = "SELECT image_path, page_filename FROM cars WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);
@@ -24,25 +24,25 @@ if ($id > 0) {
         // Визначаємо ім'я CSS файлу (замінюємо .html на .css)
         $cssFile = str_replace('.html', '.css', $htmlFile); 
 
-        // 2. Видаляємо фізичні файли
+        // Видалення фізичних файлів
         if (file_exists($imagePath)) unlink($imagePath);
         if (file_exists($htmlFile)) unlink($htmlFile);
         if (file_exists($cssFile)) unlink($cssFile);
 
-        // 3. Видаляємо запис з БД
+        // Видалення запису з БД
         $delStmt = $conn->prepare("DELETE FROM cars WHERE id = ?");
         $delStmt->bind_param("i", $id);
         
         if ($delStmt->execute()) {
             $response['success'] = true;
         } else {
-            $response['message'] = 'Помилка видалення з БД';
+            $response['message'] = 'Error deleting from database';
         }
     } else {
-        $response['message'] = 'Машину не знайдено';
+        $response['message'] = 'Car is not found';
     }
 } else {
-    $response['message'] = 'Невірний ID';
+    $response['message'] = 'Incorrect ID';
 }
 
 echo json_encode($response);
