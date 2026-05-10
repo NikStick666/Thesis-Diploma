@@ -12,8 +12,6 @@ body {
      
 }
 
- 
-
 .content {
     margin-left: 25vh;
     margin-right: 25vh;
@@ -252,6 +250,26 @@ footer {
     font-weight: 100;
     text-align: center; 
     margin-top: 4vh;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #131313;
+    color: #FEFEFE;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.back-to-top:hover {
+    background-color: #555;
+    transform: translateY(-5px); 
+    text-decoration: none;
 }
 
 footer p {
