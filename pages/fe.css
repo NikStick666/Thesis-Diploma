@@ -188,7 +188,7 @@ span {
 
 .interior-info div {
     width: 20%;
-    height: 30vh;
+    height: auto;
     background-color: #EDEDED;
     border-radius: 10px;
     padding: 3vh;
