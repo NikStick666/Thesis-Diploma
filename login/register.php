@@ -42,11 +42,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($stmt->num_rows > 0) {
         $response['success'] = false;
-        $response['message'] = "User with this username is already exists!"; 
+        $response['message'] = "User with this email is already exists!"; 
         
         $stmt->close();
         echo json_encode($response);
         exit; 
+    }
+    $stmt->close();
+
+    // Перевірка чи існує даний username зареєстрованим у системі
+    $checkUserSql = "SELECT id FROM `volvo-logins-table` WHERE username = ?";
+    $stmt = $conn->prepare($checkUserSql);
+    $stmt->bind_param("s", $user);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows > 0) {
+        $response['message'] = "User with this username is already exists!";
+        $stmt->close();
+        echo json_encode($response);
+        exit;
     }
     $stmt->close();
 

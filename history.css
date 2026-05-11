@@ -78,7 +78,7 @@ a:hover {
 
 .progress-bar {
     height: 100%;
-    background: linear-gradient(90deg, #d3d3d3 0%, #4A90E2 100%); 
+    background: linear-gradient(90deg, #d3d3d3 0%, #182871 100%); 
     width: 0%;
     border-radius: 0 3px 3px 0; 
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); 

@@ -182,7 +182,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         const formattedTime = drive.time.substring(0, 5); 
                         
                         // Визначення CSS класу статусу для відповідного кольору
-                        const statusClass = drive.status.trim().toLowerCase() === 'confirmed' ? 'status-confirmed' : 'status-pending';
+                        const status = drive.status.trim().toLowerCase();
+                        const statusClass = status === 'confirmed' ? 'status-confirmed' 
+                                            : status === 'cancelled' ? 'status-cancelled' 
+                                            : 'status-pending';
 
                         driveDiv.innerHTML = `
                             <div class="test-drive-info">
